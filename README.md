@@ -32,7 +32,8 @@ source venv/Scripts/activate
 ```
 pip install -r requirements.txt
 ```
-4. Примените миграции:
+4. Создайте `.env` по примеру `.env.example`
+5. Примените миграции:
 ```
 cd backend
 ```
@@ -42,7 +43,7 @@ python manage.py makemigrations menu
 ```
 python manage.py migrate
 ```
-5. Создайте суперпользователя:
+6. Создайте суперпользователя:
 ```
 python manage.py createsuperuser
 ```
@@ -53,4 +54,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 Заполните БД
-Задание доступносв по адресу: http://127.0.0.1:8000/api/v1/foods/
+
+Админка по адресу: http://127.0.0.1:8000/admin/
+
+Задание доступно по адресу: http://127.0.0.1:8000/api/v1/foods/
