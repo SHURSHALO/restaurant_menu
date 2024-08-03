@@ -4,6 +4,10 @@ from menu.models import Food, FoodCategory
 
 
 class FoodSerializer(serializers.ModelSerializer):
+    '''
+    Сериализатор для модели Food.
+    '''
+
     additional = serializers.SlugRelatedField(
         many=True, read_only=True, slug_field='internal_code'
     )
@@ -24,13 +28,13 @@ class FoodSerializer(serializers.ModelSerializer):
         )
 
 
-class FoodListSerializer(serializers.ModelSerializer):
-    foods = serializers.SerializerMethodField()
+class FoodCategorySerializer(serializers.ModelSerializer):
+    '''
+    Сериализатор для модели FoodCategory с включением связанных объектов Food.
+    '''
+
+    foods = FoodSerializer(source='food', many=True, read_only=True)
 
     class Meta:
         model = FoodCategory
         fields = ('id', 'name_ru', 'name_en', 'name_ch', 'order_id', 'foods')
-
-    def get_foods(self, obj):
-        foods = obj.food.filter(is_publish=True)
-        return FoodSerializer(foods, many=True, read_only=True).data
