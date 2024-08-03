@@ -19,7 +19,7 @@ Django ORM (предпочтительно), Raw SQL, Sqlalchemy…
 
 1. Клонируйте репозиторий на свой компьютер:
 ```
-git clone git@github.com:SHURSHALO/Rodion_menu.git
+git clone git@github.com:SHURSHALO/restaurant_menu.git
 ```
 2. Создайте и активируйте виртуальное окружение в корне:
 ```
