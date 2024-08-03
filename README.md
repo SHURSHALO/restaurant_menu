@@ -54,5 +54,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 Заполните БД
+
 Админка по адресу: http://127.0.0.1:8000/admin/
+
 Задание доступно по адресу: http://127.0.0.1:8000/api/v1/foods/
