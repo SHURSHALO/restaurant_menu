@@ -4,13 +4,20 @@ from django.utils.deprecation import MiddlewareMixin
 
 
 class QueryCountMiddleware(MiddlewareMixin):
+    '''
+    Middleware для отслеживания количества запросов к 
+    базе данных и времени выполнения запроса.
+    '''
+    
     def process_request(self, request):
-        # Начало отслеживания времени и количества запросов
+        ''' Начало отслеживания времени и количества запросов. '''
+        
         request._query_count_start = len(connection.queries)
         request._start_time = time.time()
 
     def process_response(self, request, response):
-        # Количество запросов и время выполнения запроса
+        '''Количество запросов и время выполнения запроса.'''
+        
         total_queries = len(connection.queries) - request._query_count_start
         total_time = time.time() - request._start_time
 
