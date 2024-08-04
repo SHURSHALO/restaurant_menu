@@ -22,7 +22,7 @@ class QueryCountMiddleware(MiddlewareMixin):
         total_time = time.time() - request._start_time
 
         # Логирование информации
-        print(f"Общее количество запросов: {total_queries}")
-        print(f"Общее время: {total_time:.4f}s")
+        print(f'Общее количество запросов: {total_queries}')
+        print(f'Общее время: {total_time:.4f}s')
 
         return response
