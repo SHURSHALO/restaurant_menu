@@ -1,15 +1,14 @@
 from django.db.models import Prefetch, Count, Q
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 
 from menu.models import FoodCategory, Food
 from api.serializers import FoodCategorySerializer
 
 
-class FoodViewSet(viewsets.ModelViewSet):
-    '''Представление для работы с категориями еды.'''
+class MenuViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+    '''Представление для списка категорий с едой.'''
 
     serializer_class = FoodCategorySerializer
-    http_method_names = ['get']
 
     def get_queryset(self):
         '''
