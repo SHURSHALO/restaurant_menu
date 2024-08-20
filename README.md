@@ -32,7 +32,9 @@ source venv/Scripts/activate
 ```
 pip install -r requirements.txt
 ```
+
 4. Создайте `.env` по примеру `.env.example`
+
 5. Примените миграции:
 ```
 cd backend
